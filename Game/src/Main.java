@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -9,35 +11,33 @@ public class Main {
         short luhikeNumber = 312;
         long pikkNumber = 4124121241412412L;*/
 
-        int playerXCoordinaate = 3;
-        int playerYCoordinaate = 3;
-        int dragonXCoordinaate = 6;
-        int dragonYCoordinaate = 2;
-        int orcXCoordinaate = 5;
-        int orcYCoordinaate = 1;
+        /*saab kasutajalt sisendit küsida*/
+        Scanner scanner = new Scanner(System.in);
+        /*küsib konsoolist*/
 
-        // algväärtus, kuni 10, samm tsüklis
-        for (int y = 0; y < 5; y++) {
+        World world = new World(10,5);
+
+        Player player = new Player(world.width, world.height);
+        Dragon dragon = new Dragon(world.width, world.height);
+        Orc orc = new Orc(world.width, world.height);
+
+        /*stringi võrdluseks ei saa kasutada võrdusmärki*/
+        world.printMap(world.width, world.height, player.xCoordinaate, player.yCoordinaate, player.symbol,
+                dragon.xCoordinaate, dragon.yCoordinaate, dragon.symbol, orc.xCoordinaate, orc.yCoordinaate,
+                orc.symbol);
+        String input = scanner.nextLine();
+        while (!input.equals("end")) {
+            player.move(input);
+            world.printMap(world.width, world.height, player.xCoordinaate, player.yCoordinaate, player.symbol,
+                    dragon.xCoordinaate, dragon.yCoordinaate, dragon.symbol, orc.xCoordinaate, orc.yCoordinaate,
+                    orc.symbol);
             System.out.println();
-            //seda tsüklit tehakse 10 x aga eelmist tehakse ka 10 ehk kokku 100
-            for (int x = 0; x < 10; x++) {
-                if (y == 0 || y == 4) {
-                    System.out.print("-");
-                } else if (x == 0 || x == 9) {
-                    System.out.print("|");
-                } else {
-                    if (playerXCoordinaate == x && playerYCoordinaate == y) {
-                        System.out.print("X");
-                    } else if (dragonXCoordinaate == x && dragonYCoordinaate == y) {
-                        System.out.print("D");
-                    } else if (orcXCoordinaate == x && orcYCoordinaate == y) {
-                        System.out.print("O");
-                    } else {
-                        System.out.print(" ");
-                    }
-                }
-            }
+            input = scanner.nextLine();
         }
+
     }
+
+    //uuri mis on static
+
 }
 
