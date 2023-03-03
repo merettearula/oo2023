@@ -27,7 +27,7 @@ public class Main {
                 orc.symbol);
         String input = scanner.nextLine();
         while (!input.equals("end")) {
-            player.move(input);
+            player.move(input, world);
             world.printMap(world.width, world.height, player.xCoordinaate, player.yCoordinaate, player.symbol,
                     dragon.xCoordinaate, dragon.yCoordinaate, dragon.symbol, orc.xCoordinaate, orc.yCoordinaate,
                     orc.symbol);
@@ -38,6 +38,7 @@ public class Main {
     }
 
     //uuri mis on static
+    //kodutöö loo üks klass ja kaks funktsiooni
 
 }
 
