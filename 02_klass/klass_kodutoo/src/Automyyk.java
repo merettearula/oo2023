@@ -25,7 +25,7 @@ public class Automyyk {
 
     public void kasAutoMyydud(){
         if(myydud) {
-            System.out.println("Auto juba müüdud");
+            System.out.println("Auto on müüdud");
         } else {
             System.out.println("Auto pole veel müüdud");
         }

@@ -1,6 +1,9 @@
+import java.util.List;
+
 public class World {
     int width;
     int height;
+
     //konstruktor läheb käima kui kutsutakse main koodis new World välja
     public World(int width, int height) {
         this.width = width;
@@ -8,21 +11,38 @@ public class World {
     }
 
     public void printMap(int worldWidth, int worldHeight, int playerXCoordinaate, int playerYCoordinaate,
-                                 char playerSymbol, int dragonXCoordinaate, int dragonYCoordinaate, char dragonSymbol,
-                                 int orcXCoordinaate, int orcYCoordinaate, char orcSymbol) {
+                         char playerSymbol, int dragonXCoordinaate, int dragonYCoordinaate, char dragonSymbol,
+                         int orcXCoordinaate, int orcYCoordinaate, char orcSymbol, List<Item> items) {
         // algväärtus, kuni 10, samm tsüklis
+        char symbol = ' ';
         for (int y = 0; y < worldHeight; y++) {
             System.out.println();
+            symbol = ' ';
             //seda tsüklit tehakse 10 x aga eelmist tehakse ka 10 ehk kokku 100
             for (int x = 0; x < worldWidth; x++) {
-                if (y == 0 || y == worldHeight -1) {
-                    System.out.print("-");
-                } else if (x == 0 || x == worldWidth -1) {
-                    System.out.print("|");
+                symbol = ' ';
+                if (y == 0 || y == worldHeight - 1) {
+                    symbol = '-';
+                } else if (x == 0 || x == worldWidth - 1) {
+                    symbol = '|';
                 } else {
-                    printCharacters(playerXCoordinaate, playerYCoordinaate, playerSymbol, dragonXCoordinaate,
-                            dragonYCoordinaate, dragonSymbol, orcXCoordinaate, orcYCoordinaate, orcSymbol, y, x);
+
+                    for (Item i : items) {
+                        if (i.yCoordinate == y && i.xCoordinate == x) {
+                            symbol = 'I';
+                            break;
+                        }
+                    }
+                    if (playerXCoordinaate == x && playerYCoordinaate == y) {
+                        symbol = playerSymbol;
+                    } else if (dragonXCoordinaate == x && dragonYCoordinaate == y) {
+                        symbol = dragonSymbol;
+                    } else if (orcXCoordinaate == x && orcYCoordinaate == y) {
+                        symbol = orcSymbol;
+                    }
                 }
+                System.out.print(symbol);
+                symbol = ' ';
             }
         }
     }
@@ -31,17 +51,7 @@ public class World {
 //        return (int) (Math.random() * (worldDimension - 2) + 1);
 //    }
 
-    private void printCharacters(int playerXCoordinaate, int playerYCoordinaate, char playerSymbol,
-                                        int dragonXCoordinaate, int dragonYCoordinaate, char dragonSymbol,
-                                        int orcXCoordinaate, int orcYCoordinaate, char orcSymbol, int y, int mapX) {
-        if (playerXCoordinaate == mapX && playerYCoordinaate == y) {
-            System.out.print(playerSymbol);
-        } else if (dragonXCoordinaate == mapX && dragonYCoordinaate == y) {
-            System.out.print(dragonSymbol);
-        } else if (orcXCoordinaate == mapX && orcYCoordinaate == y) {
-            System.out.print(orcSymbol);
-        } else {
-            System.out.print(" ");
-        }
-    }
 }
+
+
+

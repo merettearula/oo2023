@@ -1,4 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +9,7 @@ public class Main {
         System.out.println(omanikuVahetus);
 
         auto2.autoMyyakseMaha();
+        auto2.kasAutoMyydud();
 
         auto3.kasAutoMyydud();
 

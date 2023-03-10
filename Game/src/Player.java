@@ -4,6 +4,10 @@ public class Player {
     char symbol = 'X';
     Direction direction;
 
+    //Ese: xCoordinaate, yCoordinate, tugevus, kasutuskordadest, nimest
+    Item item; //klassikomplekt Player klassi sees on Item klass
+
+
     //contructor - funktsioon mis käivitatakse koheselt, peab olema public
     public Player(int worldWidth, int worldHeight) {
         this.xCoordinaate = getRandomCoordinaate(worldWidth);
