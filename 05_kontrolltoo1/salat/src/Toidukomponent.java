@@ -5,12 +5,24 @@
 public class Toidukomponent {
 
     Toiduaine toiduaine;
-    String kogus; //String sest g taha
+    double kogus;
 
-    public Toidukomponent(Toiduaine toiduaine, String kogus) {
+    public Toidukomponent(Toiduaine toiduaine, double kogus) {
         this.toiduaine = toiduaine;
         this.kogus = kogus;
     }
 
-    public double 
+    public double tagastaRasvaKogus(Toiduaine toiduaine) {
+        double rasvaKogus = this.kogus * toiduaine.rasvad / 100;
+        return rasvaKogus;
+    }
+
+    public double tagastaValguKogus(Toiduaine toiduaine) {
+        double valguKogus = this.kogus * toiduaine.valgud / 100;
+        return valguKogus;
+    }
+    public double susivesikuteKogus(Toiduaine toiduaine) {
+        double susivesikuteKogus = this.kogus * toiduaine.susivesikud / 100;
+        return susivesikuteKogus;
+    }
 }

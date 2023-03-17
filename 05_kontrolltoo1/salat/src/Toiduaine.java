@@ -12,13 +12,10 @@ public class Toiduaine {
         this.valgud = valgud;
         this.rasvad = rasvad;
         this.susivesikud = susivesikud;
-        }
-
-    public String uleSaja(){
         if (this.valgud + this.rasvad + this.susivesikud > 100) {
-           return "Protsentide summa ei tohi ületada 100!";
+            System.out.println(this.nimetus + ": " + "protsentide summa ei tohi ületada 100!");
         } else {
-           return "Toiduaine on sobilik!";
+            System.out.println(this.nimetus + ": " + "toiduaine on sobilik!");
         }
     }
 
