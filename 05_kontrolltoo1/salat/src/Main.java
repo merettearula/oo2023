@@ -21,8 +21,10 @@ public class Main {
         komponendid.add(new Toidukomponent(kartul,25));
         Toit kartulisalat = new Toit("kartulisalat", komponendid, 1);
 
-        System.out.println(kartulisalat.leiaToiduaineKogus("vorst"));
-        System.out.println(kartulisalat.annaValgudRasvadSysivesikud(""));
+        double leiaKogus = kartulisalat.leiaToiduaineKogus("vorst");
+        double annaVRS = kartulisalat.annaValgudRasvadSysivesikud();
+        System.out.println("Valgus, rasvad, SV kokku: " + annaVRS);
+        System.out.println("Kogus: " + leiaKogus);
 
         System.out.println(toidukomponent1.tagastaRasvaKogus(kartul));
         System.out.println(toidukomponent2.tagastaRasvaKogus(vorst));
