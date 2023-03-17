@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/03_klassikomplekt.iml" filepath="$PROJECT_DIR$/.idea/03_klassikomplekt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/klassikomplekt_kodutoo/klassikomplekt_kodutoo.iml" filepath="$PROJECT_DIR$/klassikomplekt_kodutoo/klassikomplekt_kodutoo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kodutoo_naidis/kodutoo_naidis.iml" filepath="$PROJECT_DIR$/kodutoo_naidis/kodutoo_naidis.iml" />
+    </modules>
+  </component>
+</project>
