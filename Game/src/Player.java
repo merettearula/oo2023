@@ -1,7 +1,5 @@
-public class Player {
-    int xCoordinaate; //castimine ehk teisendamine ühest tüübist teise (int)
-    int yCoordinaate;
-    char symbol = 'X';
+public class Player extends Character {
+
     Direction direction;
 
     //Ese: xCoordinaate, yCoordinate, tugevus, kasutuskordadest, nimest
@@ -10,14 +8,10 @@ public class Player {
 
     //contructor - funktsioon mis käivitatakse koheselt, peab olema public
     public Player(int worldWidth, int worldHeight) {
-        this.xCoordinaate = getRandomCoordinaate(worldWidth);
-        this.yCoordinaate = getRandomCoordinaate(worldHeight);
-        this.symbol = 'X';
+        super(worldWidth, worldHeight, 'X');
         this.direction = Direction.UP;
     }
-    private static int getRandomCoordinaate(int worldDimension) {
-        return (int) (Math.random() * (worldDimension - 2) + 1);
-    }
+
 
     //public - mõni teine klass saab ka seda funktsiooni välja kutsuda
     //private - tähendab, et seda funktsiooni saab ainult selles klassis kasutada
