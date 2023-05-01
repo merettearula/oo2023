@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LoomController {
-    Loom loom = new Loom(6, "Elevant", 8);
+    Loom loom = new Loom(6, "Tiiger", 8);
 
     @GetMapping("loom")
     public Loom saaLoom(){
         return loom;
     }
 
-    @DeleteMapping("kustuta-loom")
+    @GetMapping("kustuta-loom")
     public Loom kustutaLoom() {
         loom = null;
         return loom;
