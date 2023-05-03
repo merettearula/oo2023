@@ -1,5 +1,7 @@
 package ee.merette.veebipood;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,8 +11,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Toode {
-    private int id;
+@Entity //andmebaasitabeliks kuulutamine/defineerimine
+public class Toode { //andmebaasi nimi on klassi nimi
+    @Id //primaarvõtmega
+    private int id; //standard panna andmebaasi ID long
     private String nimi;
     private double hind;
 
