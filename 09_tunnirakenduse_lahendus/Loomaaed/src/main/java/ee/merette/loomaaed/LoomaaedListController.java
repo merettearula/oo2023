@@ -18,6 +18,7 @@ public class LoomaaedListController {
 
     @GetMapping("loomad")
     public List<Loom> saaLoomad(){
+
         return loomad;
     }
 
