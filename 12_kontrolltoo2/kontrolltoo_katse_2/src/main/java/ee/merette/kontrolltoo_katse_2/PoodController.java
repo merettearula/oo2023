@@ -13,9 +13,10 @@ public class PoodController {
             new Pood(2, "Rimi", 8, 22, 25),
             new Pood(3, "Kullapood", 10, 18, 4));
 
-//Loo API otspunkt, millele parameetrina antakse ette uuritav kellaaeg ning tagastatakse,
-// kas pood on sel ajal lahti või kinni.
-    //localhost:8080/kas-pood-lahti/{kellaaeg}
+    //Loo API otspunkt, millele parameetrina antakse ette uuritav kellaaeg ning tagastatakse,
+    // kas pood on sel ajal lahti või kinni.
+
+    //localhost:8080/kas-pood-lahti/12
     @GetMapping("kas-pood-lahti/{kellaaeg}")
     public String kasPoodLahti(@PathVariable int kellaaeg) {
         for (Pood pood : poodideList) {
@@ -29,6 +30,8 @@ public class PoodController {
     }
 
     //Lisa API otspunkt külastamiseks, mis suurendab andmebaasis poe külastuste arvu ühe võrra.
+
+    //localhost:8080/suurenda-kylastuste-arvu/2
     @PostMapping("suurenda-kylastuste-arvu/{poodId}")
     public String suurendaKylastusteArvu(@PathVariable int poodId) {
         for (Pood pood : poodideList) {
