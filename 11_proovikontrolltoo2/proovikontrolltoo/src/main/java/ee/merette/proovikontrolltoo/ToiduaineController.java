@@ -22,6 +22,7 @@ public class ToiduaineController {
             @RequestParam int alg,
             @RequestParam int lopp
     ){
+        //tuleb toiduaineRepositoryst, varem juba olemas, tuleb otsida
         return toiduaineRepository.findByRasvIsBetween(alg, lopp);
     }
     @GetMapping("leia-nime-alusel2")

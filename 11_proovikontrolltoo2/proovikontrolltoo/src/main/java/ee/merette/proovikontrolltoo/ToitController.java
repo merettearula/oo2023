@@ -62,6 +62,6 @@ public class ToitController {
         for (Toidukomponent t: toidukomponendid){
             kogus += t.getKogus();
         }
-        return new ArrayList<>();
+         return new ArrayList<>();
     }
 }
