@@ -16,7 +16,7 @@ import java.time.LocalTime;
 @Entity
 public class Pood {
     @Id
-    private Long id;
+    private int id;
     private String nimetus;
     private int avamiseAeg;
     private int sulgemiseAeg;

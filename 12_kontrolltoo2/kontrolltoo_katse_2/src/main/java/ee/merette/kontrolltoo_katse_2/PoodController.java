@@ -1,9 +1,7 @@
 package ee.merette.kontrolltoo_katse_2;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,21 +13,31 @@ public class PoodController {
             new Pood(2, "Rimi", 8, 22, 25),
             new Pood(3, "Kullapood", 10, 18, 4));
 
-
-    //localhost:8080/lisa-pood?id=1&nimetus=Loomapood&avamiseAeg=9&sulgemiseAeg=18&kylastajateArv=14
+//Loo API otspunkt, millele parameetrina antakse ette uuritav kellaaeg ning tagastatakse,
+// kas pood on sel ajal lahti või kinni.
+    //localhost:8080/kas-pood-lahti/{kellaaeg}
     @GetMapping("kas-pood-lahti/{kellaaeg}")
-    public String kasPoodLahti(
-            @RequestParam int kellaaeg
-    ) {
-        for(Pood pood : poodideList) {
+    public String kasPoodLahti(@PathVariable int kellaaeg) {
+        for (Pood pood : poodideList) {
             int avamiseAeg = pood.getAvamiseAeg();
             int sulgemiseAeg = pood.getSulgemiseAeg();
             if (kellaaeg >= avamiseAeg && kellaaeg < sulgemiseAeg) {
                 return "Pood on sel ajal avatud";
-            } else {
-                return "Pood on sel ajal suletud";
             }
         }
+        return "Pood on sel ajal suletud";
+    }
 
+    //Lisa API otspunkt külastamiseks, mis suurendab andmebaasis poe külastuste arvu ühe võrra.
+    @PostMapping("suurenda-kylastuste-arvu/{poodId}")
+    public String suurendaKylastusteArvu(@PathVariable int poodId) {
+        for (Pood pood : poodideList) {
+            if (pood.getId() == poodId) {
+                pood.setKylastajateArv(pood.getKylastajateArv() + 1);
+                return "Poe külastuste arv on suurendatud, külastajate arv: " + pood.getKylastajateArv();
+            }
+        }
+        return "Poodi ei leitud.";
     }
 }
+
